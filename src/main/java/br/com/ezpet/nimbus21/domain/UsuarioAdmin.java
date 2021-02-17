@@ -7,11 +7,13 @@ import lombok.Data;
 public class UsuarioAdmin {
 	
 	private Long codigo;
+	private String nome;
 	private String email;
 	private String senha;
 	private Role role = Role.ROLE_ADMIN;
 	
-	public UsuarioAdmin(String email, String senha) {
+	public UsuarioAdmin(String nome, String email, String senha) {
+		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 	}

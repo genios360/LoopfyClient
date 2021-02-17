@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 import br.com.ezpet.nimbus21.client.RestService;
 import br.com.ezpet.nimbus21.domain.UsuarioAdmin;
 import br.com.ezpet.nimbus21.domain.UsuarioColaborador;
+import br.com.ezpet.nimbus21.domain.UsuarioComercial;
 import br.com.ezpet.nimbus21.domain.enums.Role;
 
 @Service
@@ -34,7 +35,7 @@ public class AuthService implements UserDetailsService {
 		return usuarioColab;
 	}
 	
-	public UsuarioAdmin findAdminByEmail(String email){
+	public UsuarioAdmin findAdminByEmail(String email) {
 		
 		String url1 = "https://ezpet-api.herokuapp.com/usuarioAdmin/email/" + email;
 		RestTemplate restTemplate = restService.getObject();
@@ -42,7 +43,15 @@ public class AuthService implements UserDetailsService {
 		UsuarioAdmin usuarioAdmin = restTemplate.getForObject(url1, UsuarioAdmin.class);
 	
 		return usuarioAdmin;
+	}
+	
+	public UsuarioComercial findComercialByEmail(String email) {
+		String url1 = "https://ezpet-api.herokuapp.com/usuarioComercial/email/" + email;
+		RestTemplate restTemplate = restService.getObject();
 		
+		UsuarioComercial usuarioComercial = restTemplate.getForObject(url1, UsuarioComercial.class);
+		
+		return usuarioComercial;
 	}
 	
 	@Override
@@ -50,15 +59,22 @@ public class AuthService implements UserDetailsService {
 				
 		UsuarioAdmin usuarioAdmin = null;
 		UsuarioColaborador usuarioColab = null;
+		UsuarioComercial usuarioComercial = null;
 		
 		try {
 			usuarioAdmin = findAdminByEmail(email);
 		} catch (Exception e) {
-			usuarioColab = findColabByEmail(email);
+			
+			try {
+				usuarioColab = findColabByEmail(email);
+			} catch (Exception e2) {
+				usuarioComercial = findComercialByEmail(email);
+			}
+			
 		}
 		
 		
-		if (usuarioAdmin == null && usuarioColab == null) {
+		if (usuarioAdmin == null && usuarioColab == null && usuarioComercial == null) {
 			throw new UsernameNotFoundException("Email ou senha inválidos.");
 		}
 		
@@ -75,6 +91,14 @@ public class AuthService implements UserDetailsService {
 					usuarioColab.getEmail(), 
 					usuarioColab.getSenha(),
 					mapRolesToAuthorities(usuarioColab.getRole())
+			);
+		}
+		
+		if(!(usuarioComercial == null)) {
+			return new org.springframework.security.core.userdetails.User(
+					usuarioComercial.getEmail(),
+					usuarioComercial.getSenha(),
+					mapRolesToAuthorities(usuarioComercial.getRole())
 			);
 		}
 		

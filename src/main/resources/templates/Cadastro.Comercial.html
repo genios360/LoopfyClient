@@ -488,7 +488,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <h1>Cadastrar produto</h1>
+                    <h1>Cadastrar usuário comercial</h1>
                     <div class="separator mb-5"></div>
                 </div>
             </div>
@@ -500,11 +500,64 @@
 
                     <div class="card mb-4">
                         <div class="card-body">
-                            <h5 class="mb-4">Preencha o formulário com as informações do produto</h5>
-                            <form action="cadastrarProduto" method="post">
+                            <h5 class="mb-4">Preencha o formulário com as informações do usuário comercial</h5>
+                            <form action="cadastrarComercial" method="post">
                             	<input type="hidden"
 								    name="${_csrf.parameterName}"
 								    value="${_csrf.token}"/>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Nome do estabelecimento</label>
+                                    <input type="text" name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Digite o nome do usuário">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">CNPJ</label>
+                                    <input type="text" name="cnpj" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Digite o cnpj">
+                                </div>
+                                <div class="form-group">
+                                    <label>Selecione o tipo de comércio</label>
+                                    <select name="tipoUsuario" class="form-control select2-single">
+                                        <option th:each="usuarioOpt, iter : ${T(br.com.ezpet.nimbus21.domain.tipos.TipoUsuario).values()}" th:if="${iter.index > 0}"
+                                        	th:value="${usuarioOpt}" th:text="${usuarioOpt.displayValue}"></option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">CEP</label>
+                                    <input type="text" name="cep" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Digite o cep do estabelecimento">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Nome do contato</label>
+                                    <input type="text" name="nomeContato" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Digite o nome do contato">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Telefone do estabelecimento</label>
+                                    <input type="text" name="telefone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Digite o telefone do estabelecimento">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email</label>
+                                    <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Digite o email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Senha</label>
+                                    <input type="password" name="senha" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Digite a senha">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">Horário de abertura</label>
+                                        <input type="time" name="abertura" class="form-control" id="inputEmail4">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Horário de fechamento</label>
+                                        <input type="time" name="fechamento" class="form-control" id="inputPassword4">
+                                    </div>
+                                </div>
+                                <!--  
                                 <div class="form-group">
                                     <label>Selecione a loja</label>
                                     <select name="codigoUsuarioComercial" class="form-control select2-single">
@@ -512,11 +565,6 @@
                                         	<option th:value="${usuarioComercial.codigo}" th:text="${usuarioComercial.nome}"></option>
                                         </th:block>
                                     </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Título do produto</label>
-                                    <input type="text" name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                        placeholder="Digite o título do produto">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail2">Descrição do produto</label>
@@ -551,7 +599,7 @@
                                         	th:value="${fisicoOpt}" th:text="${fisicoOpt.displayValue}"></option>
                                     </select>
                                 </div>
-								
+								-->
                                 <button type="submit" class="btn btn-primary mb-0">Cadastrar</button>
                                 <sec:csrfInput/>
                             </form>

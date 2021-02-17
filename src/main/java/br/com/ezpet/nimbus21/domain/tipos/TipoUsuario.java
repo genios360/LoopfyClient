@@ -1,5 +1,18 @@
 package br.com.ezpet.nimbus21.domain.tipos;
 
 public enum TipoUsuario {
-	MASCOTE, LOJA, VETERINARIO, SERVICO
+	MASCOTE("Mascote"), 
+	LOJA("Loja"), 
+	VETERINARIO("Veterinário"), 
+	SERVICO("Serviço");
+	
+	private final String displayValue;
+	
+	private TipoUsuario(String displayValue) {
+		this.displayValue = displayValue;
+	}
+	
+	public String getDisplayValue() {
+		return displayValue;
+	}
 }

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/vendor/jquery.contextMenu.min.css" />
     <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
     <link rel="stylesheet" href="css/main.css" />
+    <link th:href="@{/webjars/font-awesome/css/font-awesome.min.css}" rel="stylesheet"/>
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
@@ -712,21 +713,23 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
+                                <div class="col-12">
                                     <a href="Layouts.Details.html">
-                                        <p class="list-item-heading mb-4">Napoleonshat</p>
+                                        <p class="list-item-heading mb-4">Napoleonshat!!!</p>
                                     </a>
                                     <footer>
                                         <p class="text-muted text-small mb-0 font-weight-light">23.05.2018</p>
-                                    </footer>
+                                    </footer><br>
+                                    <div class="d-flex justify-content-around">
+                                        <button type="button"
+                                            class="btn btn-danger" data-toggle="modal" data-target="#modal">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                        <button type="button"
+                                            class="btn btn-danger" data-toggle="modal" data-target="#modal">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -890,6 +893,25 @@
                             </li>
                         </ul>
                     </nav>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Deseja confirmar a exclusão da tarefa?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form th:action="@{/tarefas/excluir}" method="post">
+                            <input type="hidden" name="codigo" id="tarefaId">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-danger">Confirmar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
