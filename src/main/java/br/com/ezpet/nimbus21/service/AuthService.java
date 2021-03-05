@@ -64,13 +64,11 @@ public class AuthService implements UserDetailsService {
 		try {
 			usuarioAdmin = findAdminByEmail(email);
 		} catch (Exception e) {
-			
 			try {
 				usuarioColab = findColabByEmail(email);
 			} catch (Exception e2) {
 				usuarioComercial = findComercialByEmail(email);
 			}
-			
 		}
 		
 		

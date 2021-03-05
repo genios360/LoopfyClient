@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
     <meta charset="UTF-8">
-    <title>Dore jQuery</title>
+    <title>Loopfy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="font/iconsmind/style.css" />
-    <link rel="stylesheet" href="font/simple-line-icons/css/simple-line-icons.css" />
-    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/vendor/jquery.contextMenu.min.css" />
-    <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" th:href="@{/font/iconsmind/style.css}" />
+    <link rel="stylesheet" th:href="@{/font/simple-line-icons/css/simple-line-icons.css}" />
+    
+    <link th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" rel="stylesheet"/>
     <link th:href="@{/webjars/font-awesome/css/font-awesome.min.css}" rel="stylesheet"/>
+    
+    <link rel="stylesheet" th:href="@{/css/vendor/jquery.contextMenu.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/vendor/perfect-scrollbar.css}" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/foo.css}" />
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
@@ -48,14 +52,13 @@
         </div>
 
 
-        <a class="navbar-logo" href="Dashboard.Default.html">
+        <a class="navbar-logo" href="/">
             <span class="logo d-none d-xs-block"></span>
             <span class="logo-mobile d-block d-xs-none"></span>
         </a>
 
         <div class="navbar-right">
             <div class="header-icons d-inline-block align-middle">
-                <a class="btn btn-sm btn-outline-primary mr-2 d-none d-md-inline-block mb-2" href="https://1.envato.market/5kAb">&nbsp;BUY&nbsp;</a>
 
                 <div class="position-relative d-none d-sm-inline-block">
                     <button class="header-icon btn btn-empty" type="button" id="iconMenuButton" data-toggle="dropdown"
@@ -106,7 +109,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                             <a href="#">
-                                <img src="img/profile-pic-l-2.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
+                                <img th:src="@{/img/profile-pic-l-2.jpg}" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                             </a>
                             <div class="pl-3 pr-2">
                                 <a href="#">
@@ -118,7 +121,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                             <a href="#">
-                                <img src="img/notification-thumb.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
+                                <img src="../../img/notification-thumb.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                             </a>
                             <div class="pl-3 pr-2">
                                 <a href="#">
@@ -131,7 +134,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                             <a href="#">
-                                <img src="img/notification-thumb-2.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
+                                <img th:src="@{/img/notification-thumb-2.jpg}" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                             </a>
                             <div class="pl-3 pr-2">
                                 <a href="#">
@@ -143,7 +146,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 ">
                             <a href="#">
-                                <img src="img/notification-thumb-3.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
+                                <img th:src="@{/img/notification-thumb-3.jpg}" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                             </a>
                             <div class="pl-3 pr-2">
                                 <a href="#">
@@ -168,7 +171,7 @@
                     aria-expanded="false">
                     <span class="name">Sarah Kortney</span>
                     <span>
-                        <img alt="Profile Picture" src="img/profile-pic-l.jpg" />
+                        <img alt="Profile Picture" src="../img/profile-pic-l.jpg" />
                     </span>
                 </button>
 
@@ -189,32 +192,12 @@
                     <li>
                         <a href="#dashboard">
                             <i class="iconsmind-Shop-4"></i>
-                            <span>Dashboards</span>
+                            <span>Cadastrar</span>
                         </a>
                     </li>
                     <li class="active">
                         <a href="#layouts">
-                            <i class="iconsmind-Digital-Drawing"></i> Layouts
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#applications">
-                            <i class="iconsmind-Air-Balloon"></i> Applications
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#ui">
-                            <i class="iconsmind-Pantone"></i> UI
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#landingPage">
-                            <i class="iconsmind-Space-Needle"></i> Landing Page
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#menu">
-                            <i class="iconsmind-Three-ArrowFork"></i> Menu
+                            <i class="iconsmind-Digital-Drawing"></i> Listar
                         </a>
                     </li>
                 </ul>
@@ -225,71 +208,21 @@
             <div class="scroll">
                 <ul class="list-unstyled" data-link="dashboard">
                     <li>
-                        <a href="Dashboard.Default.html">
-                            <i class="simple-icon-rocket"></i> Default
+                        <a href="/admin/cadastrarProduto">
+                            <i class="simple-icon-rocket"></i> Produto
                         </a>
                     </li>
                     <li>
-                        <a href="Dashboard.Analytics.html">
-                            <i class="simple-icon-pie-chart"></i>Analytics
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Dashboard.Ecommerce.html">
-                            <i class="simple-icon-basket-loaded"></i> Ecommerce
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Dashboard.Content.html">
-                            <i class="simple-icon-doc"></i> Content
+                        <a href="/admin/cadastrarComercial">
+                            <i class="simple-icon-rocket"></i>Usuário Comercial
                         </a>
                     </li>
                 </ul>
 
                 <ul class="list-unstyled" data-link="layouts">
                     <li>
-                        <a href="Layouts.List.html">
-                            <i class="simple-icon-credit-card"></i> Data List
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Thumbs.html">
-                            <i class="simple-icon-list"></i> Thumb List
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="Layouts.Images.html">
-                            <i class="simple-icon-grid"></i> Image List
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Details.html">
-                            <i class="simple-icon-book-open"></i> Details
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Search.html">
-                            <i class="simple-icon-magnifier"></i> Search
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Login.html">
-                            <i class="simple-icon-user-following"></i> Login
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Register.html">
-                            <i class="simple-icon-user-follow"></i> Register
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.ForgotPassword.html">
-                            <i class="simple-icon-user-unfollow"></i> Forgot Password
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Error.html">
-                            <i class="simple-icon-exclamation"></i> Error
+                        <a href="/admin/listar/1">
+                            <i class="simple-icon-grid"></i> Usuários comerciais
                         </a>
                     </li>
                 </ul>
@@ -513,9 +446,9 @@
                 <div class="col-12">
 
                     <div class="mb-3">
-                        <h1>Layout Images</h1>
+                        <h1>Lista de usuários</h1>
                         <div class="float-sm-right text-zero">
-                            <button type="button" class="btn btn-primary btn-lg top-right-button mr-1">ADD NEW</button>
+                            <button type="button" onclick="location.href='/admin/cadastrarComercial'" class="btn btn-primary btn-lg top-right-button mr-1">ADD NEW</button>
                             <div class="btn-group">
                                 <div class="btn btn-primary btn-lg pl-4 pr-0 check-button">
                                     <label class="custom-control custom-checkbox mb-0 d-inline-block">
@@ -614,250 +547,39 @@
             </div>
 
             <div class="row list disable-text-selection" data-check-all="checkAll">
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Layouts.Details.html"><img class="card-img-top" src="img/card-thumb-1.jpg" alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NEW</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Layouts.Details.html">
-                                        <p class="list-item-heading mb-4">Cheesecake</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">18.08.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Layouts.Details.html"><img class="card-img-top" src="img/card-thumb-2.jpg" alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NEW</span>
-                            <span class="badge badge-pill badge-secondary position-absolute badge-top-left-2">TRENDING</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Layouts.Details.html">
-                                        <p class="list-item-heading mb-4">Chocolate Cake</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">14.06.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Layouts.Details.html"><img class="card-img-top" src="img/card-thumb-3.jpg" alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NEW</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Layouts.Details.html">
-                                        <p class="list-item-heading mb-4">Petit Gâteau</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">24.05.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Layouts.Details.html"><img class="card-img-top" src="img/card-thumb-4.jpg" alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-secondary position-absolute badge-top-left">TRENDING</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <a href="Layouts.Details.html">
-                                        <p class="list-item-heading mb-4">Napoleonshat!!!</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">23.05.2018</p>
-                                    </footer><br>
-                                    <div class="d-flex justify-content-around">
-                                        <button type="button"
-                                            class="btn btn-danger" data-toggle="modal" data-target="#modal">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                        <button type="button"
-                                            class="btn btn-danger" data-toggle="modal" data-target="#modal">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Layouts.Details.html"><img class="card-img-top" src="img/card-thumb-4.jpg" alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NEW</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Layouts.Details.html">
-                                        <p class="list-item-heading mb-4">Napoleonshat</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">19.04.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Layouts.Details.html"><img class="card-img-top" src="img/card-thumb-3.jpg" alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-secondary position-absolute badge-top-left">TRENDING</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Layouts.Details.html">
-                                        <p class="list-item-heading mb-4">Petit Gâteau</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">01.03.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Layouts.Details.html"><img class="card-img-top" src="img/card-thumb-1.jpg" alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NEW</span>
-                            <span class="badge badge-pill badge-secondary position-absolute badge-top-left-2">TRENDING</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Layouts.Details.html">
-                                        <p class="list-item-heading mb-4">Cheesecake</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">21.02.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card">
-                        <div class="position-relative">
-                            <a href="Layouts.Details.html"><img class="card-img-top" src="img/card-thumb-2.jpg" alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NEW</span>
-                            <span class="badge badge-pill badge-secondary position-absolute badge-top-left-2">TRENDING</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div class="custom-control custom-checkbox pl-1">
-                                        <label class="custom-control custom-checkbox  mb-0">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-label"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <a href="Layouts.Details.html">
-                                        <p class="list-item-heading mb-4">Chocolate Cake</p>
-                                    </a>
-                                    <footer>
-                                        <p class="text-muted text-small mb-0 font-weight-light">18.02.2018</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+				<th:block th:each="user: ${usuariosComercial}">
+	                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
+	                    <div class="card">
+	                        <div class="position-relative">
+	                            <a href="Layouts.Details.html"><img class="card-img-top" th:src="${user.foto}" alt="Card image cap"></a>
+<!-- 	                            <span class="badge badge-pill badge-secondary position-absolute badge-top-left">TRENDING</span> -->
+	                        </div>
+	                        <div class="card-body">
+	                            <div class="row">
+	                                <div class="col-12">
+	                                    <a href="Layouts.Details.html">
+	                                        <p class="list-item-heading mb-4" th:text="${user.nome}"></p>
+	                                    </a>
+	                                    <footer>
+<!-- 	                                    	<p th:text="${user.nomeContato}"></p> -->
+	                                        <p class="text-muted text-small mb-0 font-weight-light" th:text="${user.email}"></p>
+	                                    </footer><br>
+	                                    <div class="d-flex justify-content-around">
+<!-- 	                                        <button type="button" -->
+<!-- 	                                            class="btn btn-danger" data-toggle="modal" data-target="#modal"> -->
+<!-- 	                                            <i class="fa fa-trash"></i> -->
+<!-- 	                                        </button> -->
+	                                        <button th:onclick="|userId.value = ${user.codigo}|" type="button"
+	                                            class="btn btn-danger" data-toggle="modal" data-target="#modal">
+	                                            <i class="fa fa-trash"></i>
+	                                        </button>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+                </th:block>
 
                 <div class="col-12">
                     <nav class="mt-4 mb-3">
@@ -900,14 +622,18 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalLabel">Deseja confirmar a exclusão da tarefa?</h5>
+                        <h5 class="modal-title" id="modalLabel">Deseja confirmar a exclusão do usuário comercial?</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form th:action="@{/tarefas/excluir}" method="post">
-                            <input type="hidden" name="codigo" id="tarefaId">
+                    	<p>Cuidado!</p>
+                    	<p>A confirmação apagará todos os produtos registrados por esse comércio</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form th:action="@{/admin/excluirComercial}" method="post">
+                            <input type="hidden" name="codigo" id="userId">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-danger">Confirmar</button>
                         </form>
@@ -917,13 +643,20 @@
         </div>
     </main>
 
-    <script src="js/vendor/jquery-3.3.1.min.js"></script>
-    <script src="js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="js/vendor/perfect-scrollbar.min.js"></script>
-    <script src="js/vendor/mousetrap.min.js"></script>
-    <script src="js/vendor/jquery.contextMenu.min.js"></script>
-    <script src="js/dore.script.js"></script>
-    <script src="js/scripts.js"></script>
+    <script th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.1.0/js/bootstrap.bundle.min.js}"></script>
+    
+    <script th:src="@{/js/vendor/perfect-scrollbar.min.js}"></script>
+<!--     <script src="js/vendor/perfect-scrollbar.min.js"></script> -->
+<!--     <script src="js/vendor/mousetrap.min.js"></script> -->
+    <script th:src="@{/js/vendor/mousetrap.min.js}"></script>
+
+	<script th:src="@{/js/vendor/jquery.contextMenu.min.js}"></script>
+<!--     <script src="js/vendor/jquery.contextMenu.min.js"></script> -->
+<!--     <script src="js/dore.script.js"></script> -->
+<!--     <script src="js/scripts.js"></script> -->
+    <script th:src="@{/js/dore.script.js}"></script>
+    <script th:src="@{/js/scripts.js}"></script>
 </body>
 
 </html>

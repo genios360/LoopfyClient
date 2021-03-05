@@ -3212,6 +3212,7 @@ $.dore = function(element, options) {
     }
 
     /* 03.21. Cropperjs */
+    /*
     var Cropper = window.Cropper;
     if (typeof Cropper !== "undefined") {
       function each(arr, callback) {
@@ -3298,7 +3299,7 @@ $.dore = function(element, options) {
         };
       }
     }
-
+	*/
     /* 03.22. Range Slider */
     if (typeof noUiSlider !== "undefined") {
       if ($("#dashboardPriceRange").length > 0) {

@@ -6,25 +6,47 @@
     <meta charset="UTF-8">
     <title>Dore jQuery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="font/iconsmind/style.css" />
-    <link rel="stylesheet" href="font/simple-line-icons/css/simple-line-icons.css" />
-
-    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/vendor/fullcalendar.min.css" />
-    <link rel="stylesheet" href="css/vendor/bootstrap-float-label.min.css" />
-    <link rel="stylesheet" href="css/vendor/select2.min.css" />
-    <link rel="stylesheet" href="css/vendor/select2-bootstrap.min.css" />
-    <link rel="stylesheet" href="css/vendor/bootstrap-datepicker3.min.css" />
-    <link rel="stylesheet" href="css/vendor/dropzone.min.css" />
-    <link rel="stylesheet" href="css/vendor/bootstrap-tagsinput.css" />
-    <link rel="stylesheet" href="css/vendor/component-custom-switch.min.css" />
-    <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="css/vendor/nouislider.min.css" />
-    <link rel="stylesheet" href="css/vendor/bootstrap-stars.css" />
-    <link rel="stylesheet" href="css/vendor/cropper.min.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/mycss/cadastro.css" />
+    
+    <link rel="stylesheet" th:href="@{/font/iconsmind/style.css}" />
+    <link rel="stylesheet" th:href="@{/font/simple-line-icons/css/simple-line-icons.css}" />
+    
+<!--     <link rel="stylesheet" th:href="@{/css/vendor/bootstrap.min.css}" /> -->
+	<link th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" rel="stylesheet"/>
+	
+	
+    <link rel="stylesheet" th:href="@{/css/vendor/fullcalendar.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/vendor/bootstrap-float-label.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/vendor/select2.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/vendor/select2-bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/vendor/bootstrap-datepicker3.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/vendor/dropzone.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/vendor/bootstrap-tagsinput.css}" />
+    <link rel="stylesheet" th:href="@{/css/vendor/component-custom-switch.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/vendor/perfect-scrollbar.css}" />
+    <link rel="stylesheet" th:href="@{/css/vendor/nouislider.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/vendor/bootstrap-stars.css}" />
+    <link rel="stylesheet" th:href="@{/css/vendor/cropper.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/mycss/cadastro.css}" />
+    
+<!--     <link rel="stylesheet" href="font/simple-line-icons/css/simple-line-icons.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/bootstrap.min.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/fullcalendar.min.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/bootstrap-float-label.min.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/select2.min.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/select2-bootstrap.min.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/bootstrap-datepicker3.min.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/dropzone.min.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/bootstrap-tagsinput.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/component-custom-switch.min.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/nouislider.min.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/bootstrap-stars.css" /> -->
+<!--     <link rel="stylesheet" href="css/vendor/cropper.min.css" /> -->
+<!--     <link rel="stylesheet" href="css/main.css" /> -->
+<!--     <link rel="stylesheet" href="css/mycss/cadastro.css" /> -->
+    
+    
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
@@ -117,7 +139,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                             <a href="#">
-                                <img src="img/profile-pic-l-2.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
+                                <img src="../img/profile-pic-l-2.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                             </a>
                             <div class="pl-3 pr-2">
                                 <a href="#">
@@ -129,7 +151,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                             <a href="#">
-                                <img src="img/notification-thumb.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
+                                <img src="../img/notification-thumb.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                             </a>
                             <div class="pl-3 pr-2">
                                 <a href="#">
@@ -142,7 +164,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                             <a href="#">
-                                <img src="img/notification-thumb-2.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
+                                <img src="../img/notification-thumb-2.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                             </a>
                             <div class="pl-3 pr-2">
                                 <a href="#">
@@ -154,7 +176,7 @@
 
                         <div class="d-flex flex-row mb-3 pb-3 ">
                             <a href="#">
-                                <img src="img/notification-thumb-3.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
+                                <img src="../img/notification-thumb-3.jpg" alt="Notification Image" class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                             </a>
                             <div class="pl-3 pr-2">
                                 <a href="#">
@@ -179,7 +201,7 @@
                     aria-expanded="false">
                     <span class="name">Sarah Kortney</span>
                     <span>
-                        <img alt="Profile Picture" src="img/profile-pic-l.jpg" />
+                        <img alt="Profile Picture" src="../img/profile-pic-l.jpg" />
                     </span>
                 </button>
 
@@ -203,6 +225,11 @@
                             <span>Cadastrar</span>
                         </a>
                     </li>
+                    <li>
+                    	<a href="#layouts">
+                            <i class="iconsmind-Digital-Drawing"></i> Listar
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -211,12 +238,12 @@
             <div class="scroll">
                 <ul class="list-unstyled" data-link="dashboard">
                     <li>
-                        <a href="/cadastrarProduto">
+                        <a href="/admin/cadastrarProduto">
                             <i class="simple-icon-rocket"></i> Produto
                         </a>
                     </li>
                     <li>
-                        <a href="/cadastrarComercial">
+                        <a href="/admin/cadastrarComercial">
                             <i class="simple-icon-rocket"></i>Usuário Comercial
                         </a>
                     </li>
@@ -224,48 +251,8 @@
 
                 <ul class="list-unstyled" data-link="layouts">
                     <li>
-                        <a href="Layouts.List.html">
-                            <i class="simple-icon-credit-card"></i> Data List
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Thumbs.html">
-                            <i class="simple-icon-list"></i> Thumb List
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Images.html">
-                            <i class="simple-icon-grid"></i> Image List
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Details.html">
-                            <i class="simple-icon-book-open"></i> Details
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Search.html">
-                            <i class="simple-icon-magnifier"></i> Search
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Login.html">
-                            <i class="simple-icon-user-following"></i> Login
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Register.html">
-                            <i class="simple-icon-user-follow"></i> Register
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.ForgotPassword.html">
-                            <i class="simple-icon-user-unfollow"></i> Forgot Password
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Layouts.Error.html">
-                            <i class="simple-icon-exclamation"></i> Error
+                        <a href="/admin/listar/1">
+                            <i class="simple-icon-grid"></i> Usuários comerciais
                         </a>
                     </li>
                 </ul>
@@ -501,7 +488,7 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <h5 class="mb-4">Preencha o formulário com as informações do usuário comercial</h5>
-                            <form action="cadastrarComercial" method="post">
+                            <form action="cadastrarComercial" method="post" enctype="multipart/form-data">
                             	<input type="hidden"
 								    name="${_csrf.parameterName}"
 								    value="${_csrf.token}"/>
@@ -600,6 +587,41 @@
                                     </select>
                                 </div>
 								-->
+								<div class="form-group">
+                                	<div class="card-body">
+			                            <h5 class="mb-4">Foto do comércio</h5>
+			                            <label class="btn btn-outline-primary btn-upload" for="inputImage" title="Upload image file">
+			                                <input type="file" class="sr-only" id="inputImage" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff" onchange="loadFile(event)">
+			                                Selecione o arquivo
+			                            </label>
+			                            <div class="row">
+			                            	<img id="output" height="50%" width="50%"/>
+			                            	<script>
+												var loadFile = function(event) {
+													var output = document.getElementById('output');
+													output.src = URL.createObjectURL(event.target.files[0]);
+													output.onload = function() {
+														URL.revokeObjectURL(output.src)
+													}
+												};
+ 											</script>
+<!-- 			                                <div class="col-4" style="display: none;"> -->
+<!-- 			                                    <div id="cropperContainer"> -->
+<!-- 			                                        <img id="cropperImage" alt="Cropper Image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="> -->
+<!-- 			                                    </div> -->
+<!-- 			                                </div> -->
+<!-- 			                                <div class="col-5"> -->
+<!-- 			                                    <div class="cropper-preview"></div> -->
+<!-- 			                                </div> -->
+<!-- 			                                <div class="col-2"> -->
+<!-- 			                                    <div class="cropper-preview"></div> -->
+<!-- 			                                </div> -->
+<!-- 			                                <div class="col-1"> -->
+<!-- 			                                    <div class="cropper-preview"></div> -->
+<!-- 			                                </div> -->
+			                            </div>
+			                        </div>
+                                </div>
                                 <button type="submit" class="btn btn-primary mb-0">Cadastrar</button>
                                 <sec:csrfInput/>
                             </form>
@@ -611,23 +633,43 @@
         </div>
     </main>
 
-    <script src="js/vendor/jquery-3.3.1.min.js"></script>
-    <script src="js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="js/vendor/moment.min.js"></script>
-    <script src="js/vendor/fullcalendar.min.js"></script>
-    <script src="js/vendor/perfect-scrollbar.min.js"></script>
-    <script src="js/vendor/bootstrap-notify.min.js"></script>
-    <script src="js/vendor/select2.full.js"></script>
-    <script src="js/vendor/bootstrap-datepicker.js"></script>
-    <script src="js/vendor/dropzone.min.js"></script>
-    <script src="js/vendor/bootstrap-tagsinput.min.js"></script>
-    <script src="js/vendor/nouislider.min.js"></script>
-    <script src="js/vendor/jquery.barrating.min.js"></script>
-    <script src="js/vendor/cropper.min.js"></script>
-    <script src="js/vendor/typeahead.bundle.js"></script>
-    <script src="js/vendor/mousetrap.min.js"></script>
-    <script src="js/dore.script.js"></script>
-    <script src="js/scripts.js"></script>
+<!--     <script src="js/vendor/moment.min.js"></script> -->
+<!--     <script src="js/vendor/fullcalendar.min.js"></script> -->
+<!--     <script src="js/vendor/perfect-scrollbar.min.js"></script> -->
+<!--     <script src="js/vendor/bootstrap-notify.min.js"></script> -->
+<!--     <script src="js/vendor/select2.full.js"></script> -->
+<!--     <script src="js/vendor/bootstrap-datepicker.js"></script> -->
+<!--     <script src="js/vendor/dropzone.min.js"></script> -->
+<!--     <script src="js/vendor/bootstrap-tagsinput.min.js"></script> -->
+<!--     <script src="js/vendor/nouislider.min.js"></script> -->
+<!--     <script src="js/vendor/jquery.barrating.min.js"></script> -->
+<!--     <script src="js/vendor/cropper.min.js"></script> -->
+<!--     <script src="js/vendor/typeahead.bundle.js"></script> -->
+<!--     <script src="js/vendor/mousetrap.min.js"></script> -->
+<!--     <script src="js/dore.script.js"></script> -->   
+<!--     <script src="js/scripts.js"></script> -->
+
+<!--     <script th:src="@{/js/vendor/jquery-3.3.1.min.js}"></script> -->
+    <script th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+    
+<!--     <script th:src="@{/js/vendor/bootstrap1.bundle.min.js}"></script> -->
+	<script th:src="@{/webjars/bootstrap/4.1.0/js/bootstrap.bundle.min.js}"></script>
+	
+    <script th:src="@{/js/vendor/moment.min.js}"></script>
+    <script th:src="@{/js/vendor/fullcalendar.min.js}"></script>
+    <script th:src="@{/js/vendor/perfect-scrollbar.min.js}"></script>
+    <script th:src="@{/js/vendor/bootstrap-notify.min.js}"></script>
+    <script th:src="@{/js/vendor/select2.full.js}"></script>
+    <script th:src="@{/js/vendor/bootstrap-datepicker.js}"></script>
+    <script th:src="@{/js/vendor/dropzone.min.js}"></script>
+    <script th:src="@{/js/vendor/bootstrap-tagsinput.min.js}"></script>
+    <script th:src="@{/js/vendor/nouislider.min.js}"></script>
+    <script th:src="@{/js/vendor/jquery.barrating.min.js}"></script>
+    <script th:src="@{/js/vendor/cropper.min.js}"></script>
+    <script th:src="@{/js/vendor/typeahead.bundle.js}"></script>
+    <script th:src="@{/js/vendor/mousetrap.min.js}"></script>
+    <script th:src="@{/js/dore.script.js}"></script>
+    <script th:src="@{/js/scripts.js}"></script>
 
 </body>
 

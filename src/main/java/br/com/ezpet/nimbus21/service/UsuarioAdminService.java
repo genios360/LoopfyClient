@@ -1,14 +1,23 @@
 package br.com.ezpet.nimbus21.service;
 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.ezpet.nimbus21.client.RestService;
 import br.com.ezpet.nimbus21.domain.Produto;
@@ -35,14 +44,22 @@ public class UsuarioAdminService {
 		return usuariosComercial;
 	}
 	
+	public List<?> findAllComercialPage(Long page) {
+		RestTemplate restTemplate = restService.getObject();
+		String url1 = "https://ezpet-api.herokuapp.com/usuarioComercial/all?page=" + page;
+		
+		List<?> usuariosComercial = restTemplate.getForObject(url1, List.class);
+		
+		return usuariosComercial;
+	}
+	
 	public void postProduto(Produto produto) {
 		RestTemplate restTemplate = restService.getObject();
 		String url1 = "https://ezpet-api.herokuapp.com/usuarioComercial/" + produto.getCodigoUsuarioComercial();
 		String url2 = "https://ezpet-api.herokuapp.com/produto/";
 		
 		UsuarioComercial usuarioComercial = restTemplate.getForObject(url1, UsuarioComercial.class);
-		
-		produto.setFoto("https://i.imgur.com/cV7o5lD.png");
+
 		produto.setTipoProduto(TipoProduto.FISICO);
 		produto.setUsuarioComercial(usuarioComercial);
 		
@@ -63,8 +80,43 @@ public class UsuarioAdminService {
 		restTemplate.postForObject(url1, postComercial, UsuarioComercial.class);
 	}
 	
+	public void deleteComercial(long codigo) {
+		String url1 = "https://ezpet-api.herokuapp.com/usuarioComercial/" + codigo;
+		RestTemplate restTemplate = restService.getObject();
+		
+//		Map<String, String> params = new HashMap<>();
+//        params.put("id", String.valueOf(codigo));
+        
+//        restTemplate.delete(url1, params);
+        HttpEntity<?> request = new HttpEntity<Object>(getHeaders());
+        restTemplate.exchange(url1, HttpMethod.DELETE, request, String.class);
+	}
+	
 	public void postColab(UsuarioColaborador usuarioColaborador) {
 		
+	}
+	
+	public String postFoto(MultipartFile file) throws IOException {
+		RestTemplate restTemplate = restService.getObject();
+		String url1 = "https://ezpet-api.herokuapp.com/foto/upload";
+		
+		HttpHeaders headers = getHeaders();
+		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+		LinkedMultiValueMap<String, String> fileMap = new LinkedMultiValueMap<>();
+		ContentDisposition contentDisposition = ContentDisposition.builder("form-data").name("imageFile").filename(file.getOriginalFilename())
+				.build();
+		
+		fileMap.add(HttpHeaders.CONTENT_DISPOSITION, contentDisposition.toString());
+		
+		HttpEntity<byte[]> postFoto = new HttpEntity<>(file.getBytes(), fileMap);
+		
+		MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
+		body.add("imageFile", postFoto);
+		
+		HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
+		
+		String link = restTemplate.postForObject(url1, requestEntity, String.class);
+		return link;
 	}
 	
 	private String getCookie() {
